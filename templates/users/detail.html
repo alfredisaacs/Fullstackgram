@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+
+    <title>@ {{ user.username }} | detail</title>
+
+{% endblock %}
+
+{ % block container % }
+    <div>
+        <div>
+            <div>
+                <img src="{{ user.profile.picture }}" alt="@{{ user.username }}" />
+            </div>
+            <div>
+                <h2>{{ user.username }}</h2>
+                {% if user == request.user %}
+                    <a href="">Edit profile</a>
+                {% else %}
+                    <a href="">Follow</a>
+                {% endif %}
+            </div>
+            <div>
+                <div>
+                    <b>{{user.Profile.Post}}</b> posts
+                </div>
+                <div>
+                    <b>{{user.Profile.followers}}</b> followers
+                </div>
+                <div>
+                    <b>{{user.Profile.following}}</b> following
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>{{ user.biography }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            {% for post in posts %}
+                <div>
+                    <a href="{{}}">
+                        <img src="{{ posts.photo.url }}" alt="{{ Post.title }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

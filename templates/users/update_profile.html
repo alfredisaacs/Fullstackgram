@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+    <title>@{{ request.user.username }} | Update Profile</title>
+{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form action="{{}}">
+                    <div class="media">
+                        {% if profile_picture %}
+                            <img src="{{}}" alt="{{}}" class="circle" />
+                        {% else %}
+                            <img src="{{ static 'img/avatar.png' }}" alt="{{}}" />
+                    </div>
+                    <div>
+                        <label for="">Website</label>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <label for="">Biography</label>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <label for="">Phone number</label>
+                        <input type="text" />
+                    </div>
+                    <button type="submit">Update info</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
